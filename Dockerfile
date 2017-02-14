@@ -54,7 +54,8 @@ COPY ${baseDir}/init_scripts/  /etc/my_init.d/
 
 
 # Install ShareLaTeX
-RUN git clone https://github.com/sharelatex/sharelatex.git /var/www/sharelatex #random_change
+RUN git clone https://github.com/sidepelican/sharelatex.git /var/www/sharelatex #random_change
+RUN cd /var/www/sharelatex && git checkout origin/platex
 
 ADD ${baseDir}/services.js /var/www/sharelatex/config/services.js
 ADD ${baseDir}/package.json /var/www/package.json

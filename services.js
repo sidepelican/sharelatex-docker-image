@@ -2,8 +2,8 @@ module.exports =
 
 [{
 	name: "web",
-	repo: "https://github.com/sharelatex/web-sharelatex.git",
-	version: "master"
+	repo: "https://github.com/sidepelican/web-sharelatex.git",
+	version: "platex"
 }, {
 	name: "real-time",
 	repo: "https://github.com/sharelatex/real-time-sharelatex.git",
@@ -14,8 +14,8 @@ module.exports =
 	version: "master"
 }, {
 	name: "clsi",
-	repo: "https://github.com/sharelatex/clsi-sharelatex.git",
-	version: "master"
+	repo: "https://github.com/sidepelican/clsi-sharelatex.git",
+	version: "platex"
 }, {
 	name: "filestore",
 	repo: "https://github.com/sharelatex/filestore-sharelatex.git",
