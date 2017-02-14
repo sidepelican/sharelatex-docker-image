@@ -34,6 +34,9 @@ RUN tlmgr install texcount
 
 RUN npm install -g grunt-cli
 
+# Install pLatex
+RUN apt-get install -y texlive-lang-cjk
+
 # Set up sharelatex user and home directory
 RUN adduser --system --group --home /var/www/sharelatex --no-create-home sharelatex; \
 	mkdir -p /var/lib/sharelatex; \
