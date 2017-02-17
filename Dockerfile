@@ -22,7 +22,7 @@ RUN wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz; \
 	mkdir /install-tl-unx; \
 	tar -xvf install-tl-unx.tar.gz -C /install-tl-unx --strip-components=1
 
-RUN echo "selected_scheme scheme-full" >> /install-tl-unx/texlive.profile; \
+RUN echo "selected_scheme scheme-basic" >> /install-tl-unx/texlive.profile; \
 	/install-tl-unx/install-tl -profile /install-tl-unx/texlive.profile
 
 RUN rm -r /install-tl-unx; \
@@ -33,6 +33,9 @@ RUN tlmgr install latexmk
 RUN tlmgr install texcount
 
 RUN npm install -g grunt-cli
+
+# Install pLatex
+RUN apt-get install -y texlive-lang-cjk
 
 # Set up sharelatex user and home directory
 RUN adduser --system --group --home /var/www/sharelatex --no-create-home sharelatex; \
@@ -51,6 +54,7 @@ ADD ${baseDir}/nginx/nginx.conf /etc/nginx/nginx.conf
 ADD ${baseDir}/nginx/sharelatex.conf /etc/nginx/sites-enabled/sharelatex.conf
 
 COPY ${baseDir}/init_scripts/  /etc/my_init.d/
+
 
 # Install ShareLaTeX
 RUN git clone https://github.com/sidepelican/sharelatex.git /var/www/sharelatex #random_change
