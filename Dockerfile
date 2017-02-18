@@ -29,7 +29,8 @@ RUN rm -r /install-tl-unx; \
 	rm install-tl-unx.tar.gz
 
 ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/texlive/2016/bin/x86_64-linux/
-RUN tlmgr install latexmk
+# RUN tlmgr install latexmk
+ADD ${baseDir}/latexmk/latexmk /usr/local/bin/latexmk
 RUN tlmgr install texcount
 
 RUN npm install -g grunt-cli
